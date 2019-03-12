@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace PengCore
+namespace DDD.Web
 {
     public class Startup
     {
@@ -30,6 +30,10 @@ namespace PengCore
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            var connection = Configuration.GetConnectionString("DefaultConnection");
+            //services.AddDapperDBContext<MyDBContext>(options => {
+            //    options.Configuration = connection.ToString();
+            //});
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
