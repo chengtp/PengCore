@@ -13,37 +13,41 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.0 Infrastructure", "4.0 I
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.0 test", "5.0 test", "{5B76CC6E-BCBD-4BC6-A3A1-ED7840B2B6A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Web", "DDD.Web\DDD.Web.csproj", "{89AE44C0-E57A-48ED-A294-FB894D5195E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Web", "DDD.Web\DDD.Web.csproj", "{89AE44C0-E57A-48ED-A294-FB894D5195E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.WebApi", "DDD.WebApi\DDD.WebApi.csproj", "{FC348B7E-E6C4-41B6-B0FC-A21A17EE1E1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.WebApi", "DDD.WebApi\DDD.WebApi.csproj", "{FC348B7E-E6C4-41B6-B0FC-A21A17EE1E1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Application.Dtos", "DDD.Application.Dtos\DDD.Application.Dtos.csproj", "{F5D90C7C-FC62-4D94-A51B-76B764DF6EB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Application.Dtos", "DDD.Application.Dtos\DDD.Application.Dtos.csproj", "{F5D90C7C-FC62-4D94-A51B-76B764DF6EB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Application.Interfaces", "DDD.Application.Interfaces\DDD.Application.Interfaces.csproj", "{D3CFA71E-E0E4-4AA6-87E9-17EDEA34A3A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Application.Interfaces", "DDD.Application.Interfaces\DDD.Application.Interfaces.csproj", "{D3CFA71E-E0E4-4AA6-87E9-17EDEA34A3A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Application.Services", "DDD.Application.Services\DDD.Application.Services.csproj", "{12F3240F-830A-4808-A53D-EFD170BA4617}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Application.Services", "DDD.Application.Services\DDD.Application.Services.csproj", "{12F3240F-830A-4808-A53D-EFD170BA4617}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Domain", "DDD.Domain\DDD.Domain.csproj", "{E1EE5D95-FC5C-4C86-9F59-0AC4FF1B5B9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Domain", "DDD.Domain\DDD.Domain.csproj", "{E1EE5D95-FC5C-4C86-9F59-0AC4FF1B5B9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Domain.DomainEvents", "DDD.Domain.DomainEvents\DDD.Domain.DomainEvents.csproj", "{3A953C69-6491-4636-81C0-3A2869AA2CC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Domain.DomainEvents", "DDD.Domain.DomainEvents\DDD.Domain.DomainEvents.csproj", "{3A953C69-6491-4636-81C0-3A2869AA2CC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Domain.DomainServices", "DDD.Domain.DomainServices\DDD.Domain.DomainServices.csproj", "{C6D4B0EB-2AC6-4D12-8589-CD4162EDE365}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Domain.DomainServices", "DDD.Domain.DomainServices\DDD.Domain.DomainServices.csproj", "{C6D4B0EB-2AC6-4D12-8589-CD4162EDE365}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Repository.Interfaces", "DDD.Repository.Interfaces\DDD.Repository.Interfaces.csproj", "{476A0B6D-A351-4D86-A166-CFDCE510F088}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Repository.Interfaces", "DDD.Repository.Interfaces\DDD.Repository.Interfaces.csproj", "{476A0B6D-A351-4D86-A166-CFDCE510F088}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Domain.ValueObjects", "DDD.Domain.ValueObjects\DDD.Domain.ValueObjects.csproj", "{11F0B804-1F32-4A47-A12E-C0C96BAA4048}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Domain.ValueObjects", "DDD.Domain.ValueObjects\DDD.Domain.ValueObjects.csproj", "{11F0B804-1F32-4A47-A12E-C0C96BAA4048}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Infrastructure", "DDD.Infrastructure\DDD.Infrastructure.csproj", "{2CFCC825-3377-4499-8A53-99A20F6305AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Infrastructure", "DDD.Infrastructure\DDD.Infrastructure.csproj", "{2CFCC825-3377-4499-8A53-99A20F6305AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Infrastructure.IoC", "DDD.Infrastructure.Ioc\DDD.Infrastructure.IoC.csproj", "{96FF4755-9088-4E50-A338-9E0D8F42F88F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Infrastructure.IoC", "DDD.Infrastructure.Ioc\DDD.Infrastructure.IoC.csproj", "{96FF4755-9088-4E50-A338-9E0D8F42F88F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Infrastructure.Repository", "DDD.Infrastructure.Repository\DDD.Infrastructure.Repository.csproj", "{9066DAE5-5DBC-42EE-B471-00E291AF7FF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Infrastructure.Repository", "DDD.Infrastructure.Repository\DDD.Infrastructure.Repository.csproj", "{9066DAE5-5DBC-42EE-B471-00E291AF7FF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.ServiceAgent", "DDD.ServiceAgent\DDD.ServiceAgent.csproj", "{ADF475D6-6732-4BFE-BBA1-DE9EDBAB4F69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.ServiceAgent", "DDD.ServiceAgent\DDD.ServiceAgent.csproj", "{ADF475D6-6732-4BFE-BBA1-DE9EDBAB4F69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Infrastructure.Dtos", "DDD.Infrastructure.Dto\DDD.Infrastructure.Dtos.csproj", "{9F461C2D-76C9-4C20-88EE-A76D26F1B11C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Infrastructure.Dtos", "DDD.Infrastructure.Dto\DDD.Infrastructure.Dtos.csproj", "{9F461C2D-76C9-4C20-88EE-A76D26F1B11C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Common", "DDD.Common\DDD.Common.csproj", "{70453A81-3E5E-4D2E-84B3-66B665653F37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Common", "DDD.Common\DDD.Common.csproj", "{70453A81-3E5E-4D2E-84B3-66B665653F37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Infrastructure.Interfaces", "DDD.Infrastructure.Interfaces\DDD.Infrastructure.Interfaces.csproj", "{5E7D492C-7AD6-4171-BE12-FF78D4A580A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Infrastructure.AutoMapper", "DDD.Infrastructure.AutoMapper\DDD.Infrastructure.AutoMapper.csproj", "{CD14A451-BBF2-49FF-851A-823FA9E2EA61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -115,6 +119,14 @@ Global
 		{70453A81-3E5E-4D2E-84B3-66B665653F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70453A81-3E5E-4D2E-84B3-66B665653F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70453A81-3E5E-4D2E-84B3-66B665653F37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E7D492C-7AD6-4171-BE12-FF78D4A580A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E7D492C-7AD6-4171-BE12-FF78D4A580A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E7D492C-7AD6-4171-BE12-FF78D4A580A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E7D492C-7AD6-4171-BE12-FF78D4A580A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD14A451-BBF2-49FF-851A-823FA9E2EA61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD14A451-BBF2-49FF-851A-823FA9E2EA61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD14A451-BBF2-49FF-851A-823FA9E2EA61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD14A451-BBF2-49FF-851A-823FA9E2EA61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,6 +148,8 @@ Global
 		{ADF475D6-6732-4BFE-BBA1-DE9EDBAB4F69} = {467B1645-42F6-4B3A-BAFA-D39BA22AFE50}
 		{9F461C2D-76C9-4C20-88EE-A76D26F1B11C} = {467B1645-42F6-4B3A-BAFA-D39BA22AFE50}
 		{70453A81-3E5E-4D2E-84B3-66B665653F37} = {467B1645-42F6-4B3A-BAFA-D39BA22AFE50}
+		{5E7D492C-7AD6-4171-BE12-FF78D4A580A8} = {467B1645-42F6-4B3A-BAFA-D39BA22AFE50}
+		{CD14A451-BBF2-49FF-851A-823FA9E2EA61} = {467B1645-42F6-4B3A-BAFA-D39BA22AFE50}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AEAE5DC6-764E-4C6E-A768-ABFEA6D688AA}

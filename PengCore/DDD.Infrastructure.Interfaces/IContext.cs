@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace DDD.Repository.Interfaces.Data
+namespace DDD.Infrastructure.Interfaces
 {
     /// <summary>
     /// 定义事务接口
@@ -16,5 +17,10 @@ namespace DDD.Repository.Interfaces.Data
         void Commit();
 
         void Rollback();
+
+
+        Task<int> RegisterNew<TEntity>(TEntity entity) where TEntity : class;
+        Task<bool> RegisterModified<TEntity>(TEntity obj) where TEntity : class;
+        Task<bool> RegisterDeleted<TEntity>(TEntity obj) where TEntity : class;
     }
 }

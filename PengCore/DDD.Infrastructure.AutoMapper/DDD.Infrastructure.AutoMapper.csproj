@@ -6,13 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DDD.Application.Dtos\DDD.Application.Dtos.csproj" />
-    <ProjectReference Include="..\DDD.Application.Interfaces\DDD.Application.Interfaces.csproj" />
-    <ProjectReference Include="..\DDD.Infrastructure\DDD.Infrastructure.csproj" />
-    <ProjectReference Include="..\DDD.Repository.Interfaces\DDD.Repository.Interfaces.csproj" />
+    <ProjectReference Include="..\DDD.Domain\DDD.Domain.csproj" />
   </ItemGroup>
 
 </Project>

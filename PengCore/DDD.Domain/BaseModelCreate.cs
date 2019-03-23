@@ -11,7 +11,7 @@ namespace DDD.Domain
         /// <summary>
         /// 唯一标识
         /// </summary>
-        [Key]
+        [ExplicitKey]
         public Guid Id { get; set; }
         /// <summary>
         /// 创建时间
