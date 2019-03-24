@@ -56,8 +56,11 @@ namespace DDD.Web
 
             Mapper.Initialize(cfg =>
             {
-                cfg.AddProfile<Infrastructure.AutoMapper.ServiceProfiles>();
+                cfg.AddProfile(new Infrastructure.AutoMapper.ServiceProfiles());
             });
+
+           // var config = new MapperConfiguration(cfg => cfg.AddProfile<Infrastructure.AutoMapper.ServiceProfiles>());
+
             services.AddAutoMapper();
         }
 
@@ -76,14 +79,20 @@ namespace DDD.Web
 
             app.UseHttpsRedirection();
 
-            DefaultFilesOptions options = new DefaultFilesOptions();
-            options.DefaultFileNames.Add("index.html");    //将index.html改为需要默认起始页的文件名.
-            app.UseDefaultFiles(options);
+            //DefaultFilesOptions options = new DefaultFilesOptions();
+            //options.DefaultFileNames.Add("index.html");    //将index.html改为需要默认起始页的文件名.
+            //app.UseDefaultFiles(options);
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            
-            app.UseMvc();
+
+            //  app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");  //（手动高亮）
+            });
         }
     }
 }

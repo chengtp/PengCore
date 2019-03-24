@@ -19,7 +19,7 @@ namespace DDD.Web.Pages
         {
             _context = context;
             iUserInfoService = _iUserInfoService;
-            AutoMapper.IMapper modelMapper = _modelMapper;
+            modelMapper = _modelMapper;
         }
 
         public async Task OnGet()

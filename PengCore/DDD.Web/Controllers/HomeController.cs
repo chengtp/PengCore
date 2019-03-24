@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DDD.Application.Interfaces;
+using DDD.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,10 +11,22 @@ namespace DDD.Web.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
-        public ActionResult Index()
+        private DapperDBContext _context;
+        private IUserInfoService iUserInfoService;
+        private readonly AutoMapper.IMapper modelMapper;
+        public HomeController(DapperDBContext context, IUserInfoService _iUserInfoService,
+            AutoMapper.IMapper _modelMapper)
         {
-            return View();
+            _context = context;
+            iUserInfoService = _iUserInfoService;
+            modelMapper = _modelMapper;
+        }
+
+        // GET: Home
+        public async Task<ActionResult> Index()
+        {
+            var models = await iUserInfoService.GetModels();
+            return View(models);
         }
 
         // GET: Home/Details/5

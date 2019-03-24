@@ -5,7 +5,10 @@ using DDD.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
+
+
 
 namespace DDD.Application.Services
 {
@@ -19,7 +22,7 @@ namespace DDD.Application.Services
         {
             _context = context;
             iUserInfoRepository = _iUserInfoRepository;
-            AutoMapper.IMapper modelMapper = _modelMapper;
+            modelMapper = _modelMapper;
         }
 
 
@@ -27,8 +30,20 @@ namespace DDD.Application.Services
         {
             IEnumerable<UserInfoOutput> models = null;
             IEnumerable<Domain.Sys_UserInfo> SourceModels = await iUserInfoRepository.GetModels();
-           //  models = modelMapper.Map<IEnumerable<UserInfoOutput>>(SourceModels);
-            models = modelMapper.Map<IEnumerable<Domain.Sys_UserInfo>, IEnumerable<UserInfoOutput>>(SourceModels);
+
+            try
+            {
+                //  var list = SourceModels.ToList();
+
+                 models = modelMapper.Map<List<UserInfoOutput>>(SourceModels);
+                //models = modelMapper.Map<IEnumerable<Domain.Sys_UserInfo>, IEnumerable<UserInfoOutput>>(SourceModels);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
             return models;
         }
     }
