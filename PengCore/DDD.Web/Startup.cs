@@ -53,7 +53,12 @@ namespace DDD.Web
             //services.AddTransient<ICategoryRepository, UowCategoryRepository>();
             Infrastructure.IoC.DefaultConfigHelper.RegisterBasicType(services);
 
-            services.AddAutoMapper(typeof(Startup));
+
+            Mapper.Initialize(cfg =>
+            {
+                cfg.AddProfile<Infrastructure.AutoMapper.ServiceProfiles>();
+            });
+            services.AddAutoMapper();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

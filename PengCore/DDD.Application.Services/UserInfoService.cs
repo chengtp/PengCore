@@ -27,7 +27,8 @@ namespace DDD.Application.Services
         {
             IEnumerable<UserInfoOutput> models = null;
             IEnumerable<Domain.Sys_UserInfo> SourceModels = await iUserInfoRepository.GetModels();
-            models = modelMapper.Map<IEnumerable<UserInfoOutput>>(SourceModels);
+           //  models = modelMapper.Map<IEnumerable<UserInfoOutput>>(SourceModels);
+            models = modelMapper.Map<IEnumerable<Domain.Sys_UserInfo>, IEnumerable<UserInfoOutput>>(SourceModels);
             return models;
         }
     }

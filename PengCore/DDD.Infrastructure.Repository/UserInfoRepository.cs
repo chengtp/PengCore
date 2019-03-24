@@ -12,12 +12,10 @@ namespace DDD.Infrastructure.Repository
     public class UserInfoRepository : BaseRepository<Sys_UserInfo>, IUserInfoRepository
     {
         private DapperDBContext _context;
-        private DapperUnitOfWorkFactory _unitOfWork;
-        public UserInfoRepository(DapperDBContext context, DapperUnitOfWorkFactory unitOfWork)
+        public UserInfoRepository(DapperDBContext context)
             : base(context)
         {
             _context = context;
-            _unitOfWork = unitOfWork;
         }
 
         public void Etesttt()

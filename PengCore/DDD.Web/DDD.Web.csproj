@@ -15,9 +15,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DDD.Application.Interfaces\DDD.Application.Interfaces.csproj" />
+    <ProjectReference Include="..\DDD.Infrastructure.AutoMapper\DDD.Infrastructure.AutoMapper.csproj" />
     <ProjectReference Include="..\DDD.Infrastructure.Dto\DDD.Infrastructure.Dtos.csproj" />
     <ProjectReference Include="..\DDD.Infrastructure.Ioc\DDD.Infrastructure.IoC.csproj" />
     <ProjectReference Include="..\DDD.Infrastructure\DDD.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Home\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>
