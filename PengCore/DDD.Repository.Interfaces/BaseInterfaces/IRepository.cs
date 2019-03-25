@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using DDD.Common;
 using DDD.Domain.DomainModel;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,9 @@ namespace DDD.Repository.Interfaces.BaseInterfaces
         Task<bool> DeleteAllAsync(TEntity entityToDelete, int? commandTimeout = null);
 
         Task<IEnumerable<TEntity>> QueryAsync(string sql, object param = null, int? commandTimeout = null, CommandType commandType = CommandType.Text);
+        Task<PagedResult<TEntity>> QueryPageAsync(string sql, object param = null, int? commandTimeout = null, CommandType commandType = CommandType.Text);
         Task<IEnumerable<TEntity>> GetAllAsync(int? commandTimeout = null);
+        Task<PagedResult<TEntity>> GetAllPageAsync(int? commandTimeout = null);
         Task<SqlMapper.GridReader> QueryMultipleAsync(string sql, object param = null, int? commandTimeout = null, CommandType commandType = CommandType.Text);
         Task<TEntity> QueryFirstOrDefaultAsync(string sql, object param = null, int? commandTimeout = null, CommandType commandType = CommandType.Text);
         Task<TEntity> Get(Guid id, int? commandTimeout = null);

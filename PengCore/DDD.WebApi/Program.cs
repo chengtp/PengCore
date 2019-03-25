@@ -19,6 +19,7 @@ namespace DDD.WebApi
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+           // .UseUrls("http://lcoalhost:6001")
                 .UseStartup<Startup>();
     }
 }

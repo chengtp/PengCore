@@ -11,6 +11,16 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DDD.Application.Interfaces\DDD.Application.Interfaces.csproj" />
+    <ProjectReference Include="..\DDD.Infrastructure.AutoMapper\DDD.Infrastructure.AutoMapper.csproj" />
+    <ProjectReference Include="..\DDD.Infrastructure.Dto\DDD.Infrastructure.Dtos.csproj" />
+    <ProjectReference Include="..\DDD.Infrastructure.Ioc\DDD.Infrastructure.IoC.csproj" />
+    <ProjectReference Include="..\DDD.Infrastructure\DDD.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

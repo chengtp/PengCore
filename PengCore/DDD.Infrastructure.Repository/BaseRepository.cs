@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Dapper.Contrib.Extensions;
+using DDD.Common;
 using DDD.Domain.DomainModel;
 using DDD.Repository.Interfaces.BaseInterfaces;
 using System;
@@ -88,6 +89,20 @@ namespace DDD.Infrastructure.Repository
         {
             return await _context._connection.QueryAsync<TEntity>(sql, param, _context._transaction, commandTimeout, commandType);
         }
+
+        /// <summary>
+        /// sql查询 分页集合对象
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <param name="param"></param>
+        /// <param name="commandTimeout"></param>
+        /// <param name="commandType"></param>
+        /// <returns></returns>
+        public Task<PagedResult<TEntity>> QueryPageAsync(string sql, object param = null, int? commandTimeout = null, CommandType commandType = CommandType.Text)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// 实体查询所有记录
         /// </summary>
@@ -97,6 +112,17 @@ namespace DDD.Infrastructure.Repository
         {
             return await _context._connection.GetAllAsync<TEntity>(_context._transaction, commandTimeout);
         }
+
+        /// <summary>
+        /// 实体查询所有分页记录
+        /// </summary>
+        /// <param name="commandTimeout"></param>
+        /// <returns></returns>
+        public Task<PagedResult<TEntity>> GetAllPageAsync(int? commandTimeout = null)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// 实体查询多个实体集合数据
         /// </summary>
@@ -136,6 +162,10 @@ namespace DDD.Infrastructure.Repository
         {
             return await _context._connection.QueryAsync(sql, map, param, _context._transaction, true, splitOn, commandTimeout, commandType);
         }
+
+       
+
+       
 
         #endregion
     }
