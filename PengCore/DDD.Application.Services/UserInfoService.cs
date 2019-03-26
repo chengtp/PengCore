@@ -41,7 +41,7 @@ namespace DDD.Application.Services
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
 
             return models;

@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DDD.WebApi.Controllers
 {
+    /// <summary>
+    /// 起始控制器
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class HomeController : ControllerBase
@@ -16,6 +19,9 @@ namespace DDD.WebApi.Controllers
         private DapperDBContext _context;
         private IUserInfoService iUserInfoService;
         private readonly AutoMapper.IMapper modelMapper;
+        /// <summary>
+        /// HomeController
+        /// </summary>
         public HomeController(DapperDBContext context, IUserInfoService _iUserInfoService,
             AutoMapper.IMapper _modelMapper)
         {
@@ -24,7 +30,10 @@ namespace DDD.WebApi.Controllers
             modelMapper = _modelMapper;
         }
 
-        // GET: Index
+        /// <summary>
+        /// 获取所有用户数据
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("Index")]
         public async Task<ActionResult> Index()
