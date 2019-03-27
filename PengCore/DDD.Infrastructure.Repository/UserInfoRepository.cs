@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Dapper.Contrib.Extensions;
 using DDD.Domain;
+using DDD.Infrastructure.Dtos.PageList;
 using DDD.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,12 @@ namespace DDD.Infrastructure.Repository
 
         public async Task<IEnumerable<Sys_UserInfo>> GetModels()
         {
+            PagedRequest request = new PagedRequest()
+            {
+
+            };
+            var list = await QueryPageAsync(request);
+
             return await _context._connection.GetAllAsync<Sys_UserInfo>();
         }
     }

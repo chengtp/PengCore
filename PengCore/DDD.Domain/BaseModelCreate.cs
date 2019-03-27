@@ -16,7 +16,7 @@ namespace DDD.Domain
         /// <summary>
         /// 创建时间
         /// </summary>
-        public DateTime CreteDate { get; set; } = DateTime.Now;
+        public DateTime CreateDate { get; set; } = DateTime.Now;
         /// <summary>
         /// 创建人唯一标识
         /// </summary>

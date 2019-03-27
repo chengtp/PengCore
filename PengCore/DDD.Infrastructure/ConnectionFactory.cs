@@ -7,7 +7,7 @@ using System.Text;
 namespace DDD.Infrastructure
 {
     /// <summary>
-    /// 链接工厂，切换数据库
+    /// 链接工厂，切换数据库   没有使用，启用另外一种方式操作
     /// </summary>
     public class ConnectionFactory
     {

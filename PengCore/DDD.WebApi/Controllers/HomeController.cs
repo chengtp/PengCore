@@ -33,6 +33,10 @@ namespace DDD.WebApi.Controllers
         /// <summary>
         /// 获取所有用户数据
         /// </summary>
+        /// <remarks>
+        /// 例子
+        /// Index
+        /// </remarks>
         /// <returns></returns>
         [HttpGet]
         [Route("Index")]

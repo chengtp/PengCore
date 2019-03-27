@@ -2,11 +2,13 @@
 using Dapper.Contrib.Extensions;
 using DDD.Common;
 using DDD.Domain.DomainModel;
+using DDD.Infrastructure.Dtos.PageList;
 using DDD.Repository.Interfaces.BaseInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace DDD.Infrastructure.Repository
@@ -98,9 +100,33 @@ namespace DDD.Infrastructure.Repository
         /// <param name="commandTimeout"></param>
         /// <param name="commandType"></param>
         /// <returns></returns>
-        public Task<PagedResult<TEntity>> QueryPageAsync(string sql, object param = null, int? commandTimeout = null, CommandType commandType = CommandType.Text)
+        public virtual async Task<PagedResult<TEntity>> QueryPageAsync(PagedRequest request, object param = null, int? commandTimeout = null, CommandType commandType = CommandType.StoredProcedure)
         {
-            throw new NotImplementedException();
+            var type = typeof(TEntity);
+
+            var para = new Dapper.DynamicParameters();
+            para.Add("TableName", Reflector.GetTableName(type), DbType.String, ParameterDirection.Input);
+            para.Add("FieldsStr", "*", DbType.String, ParameterDirection.Input);
+            para.Add("OrderString", request.Order, DbType.String, ParameterDirection.Input);
+            para.Add("PageIndex", request.PageIndex, DbType.Int16, ParameterDirection.Input);
+            para.Add("PageSize", request.PageSize, DbType.Int16, ParameterDirection.Input);
+            para.Add("TotalRecord", request.PageSize, DbType.Int32, ParameterDirection.ReturnValue);
+            para.AddDynamicParams(param);
+
+            var DataList = await _context._connection.QueryAsync<TEntity>("proc_PageList", para, _context._transaction, commandTimeout, CommandType.StoredProcedure);
+
+            var TotalRecord = para.Get<long>("TotalRecord");
+
+            PagedResult<TEntity> entities = new PagedResult<TEntity>
+            {
+                Data = DataList.ToList(),
+                TotalRecords = TotalRecord,
+                PageIndex = request.PageIndex,
+                PageSize = request.PageSize,
+                TotalPages = ((int)TotalRecord + request.PageSize - 1) / request.PageSize
+            };
+            return entities;
+
         }
 
         /// <summary>
@@ -112,17 +138,7 @@ namespace DDD.Infrastructure.Repository
         {
             return await _context._connection.GetAllAsync<TEntity>(_context._transaction, commandTimeout);
         }
-
-        /// <summary>
-        /// 实体查询所有分页记录
-        /// </summary>
-        /// <param name="commandTimeout"></param>
-        /// <returns></returns>
-        public Task<PagedResult<TEntity>> GetAllPageAsync(int? commandTimeout = null)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         /// <summary>
         /// 实体查询多个实体集合数据
         /// </summary>
@@ -163,9 +179,9 @@ namespace DDD.Infrastructure.Repository
             return await _context._connection.QueryAsync(sql, map, param, _context._transaction, true, splitOn, commandTimeout, commandType);
         }
 
-       
 
-       
+
+
 
         #endregion
     }

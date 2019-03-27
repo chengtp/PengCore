@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 
-namespace DDD.Common
+namespace DDD.Infrastructure.Dtos.PageList
 {
     /// <summary>
     /// 分页结果对象，UI显示它，BLL或者DATA为它赋值
