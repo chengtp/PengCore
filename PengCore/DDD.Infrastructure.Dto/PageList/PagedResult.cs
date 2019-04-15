@@ -10,7 +10,7 @@ namespace DDD.Infrastructure.Dtos.PageList
     /// ABP陈晴阳开发，添加了AddParameters属性，用来存储URL参数
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class PagedResult<T> : IEnumerable<T>, ICollection<T>
+    public class PagedResult<T>   //: IEnumerable<T>, ICollection<T>
     {
         #region Public Fields
         /// <summary>
@@ -152,14 +152,14 @@ namespace DDD.Infrastructure.Dtos.PageList
         #endregion
 
         #region IEnumerable Members
-        /// <summary>
-        /// 返回一个循环访问集合的枚举数。 （继承自 IEnumerable。）
-        /// </summary>
-        /// <returns>一个可用于循环访问集合的 IEnumerator 对象。</returns>
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return Data.GetEnumerator();
-        }
+        ///// <summary>
+        ///// 返回一个循环访问集合的枚举数。 （继承自 IEnumerable。）
+        ///// </summary>
+        ///// <returns>一个可用于循环访问集合的 IEnumerator 对象。</returns>
+        //IEnumerator IEnumerable.GetEnumerator()
+        //{
+        //    return Data.GetEnumerator();
+        //}
 
         #endregion
 

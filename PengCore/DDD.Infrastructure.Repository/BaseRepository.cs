@@ -110,7 +110,7 @@ namespace DDD.Infrastructure.Repository
             para.Add("OrderString", request.Order, DbType.String, ParameterDirection.Input);
             para.Add("PageIndex", request.PageIndex, DbType.Int16, ParameterDirection.Input);
             para.Add("PageSize", request.PageSize, DbType.Int16, ParameterDirection.Input);
-            para.Add("TotalRecord", request.PageSize, DbType.Int32, ParameterDirection.ReturnValue);
+            para.Add("TotalRecord", request.PageSize, DbType.Int64, ParameterDirection.Output);
             para.AddDynamicParams(param);
 
             var DataList = await _context._connection.QueryAsync<TEntity>("proc_PageList", para, _context._transaction, commandTimeout, CommandType.StoredProcedure);

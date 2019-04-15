@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace DDD.Infrastructure.Repository
 {
+    /// <summary>
+    /// 用户
+    /// </summary>
     public class UserInfoRepository : BaseRepository<Sys_UserInfo>, IUserInfoRepository
     {
         private DapperDBContext _context;
@@ -40,7 +43,7 @@ namespace DDD.Infrastructure.Repository
 
         }
 
-        public async Task<IEnumerable<Sys_UserInfo>> GetModels()
+        public async Task<PagedResult<Sys_UserInfo>> GetModels()
         {
             PagedRequest request = new PagedRequest()
             {
@@ -48,7 +51,8 @@ namespace DDD.Infrastructure.Repository
             };
             var list = await QueryPageAsync(request);
 
-            return await _context._connection.GetAllAsync<Sys_UserInfo>();
+            return list;
+          //  return await _context._connection.GetAllAsync<Sys_UserInfo>();
         }
     }
 }

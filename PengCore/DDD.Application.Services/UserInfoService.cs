@@ -7,8 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
-
-
+using DDD.Infrastructure.Dtos.PageList;
 
 namespace DDD.Application.Services
 {
@@ -26,16 +25,18 @@ namespace DDD.Application.Services
         }
 
 
-        public async Task<IEnumerable<UserInfoOutput>> GetModels()
+        public async Task<PagedResult<UserInfoOutput>> GetModels()
         {
-            IEnumerable<UserInfoOutput> models = null;
-            IEnumerable<Domain.Sys_UserInfo> SourceModels = await iUserInfoRepository.GetModels();
+            PagedResult<UserInfoOutput> models = new PagedResult<UserInfoOutput>();
+            PagedResult<Domain.Sys_UserInfo> SourceModels = await iUserInfoRepository.GetModels();
 
             try
             {
-                //  var list = SourceModels.ToList();
-
-                 models = modelMapper.Map<List<UserInfoOutput>>(SourceModels);
+                models.Data = modelMapper.Map<List<UserInfoOutput>>(SourceModels.Data);
+                models.PageIndex = SourceModels.PageIndex;
+                models.PageSize = SourceModels.PageSize;
+                models.TotalPages = SourceModels.TotalPages;
+                models.TotalRecords = SourceModels.TotalRecords;
                 //models = modelMapper.Map<IEnumerable<Domain.Sys_UserInfo>, IEnumerable<UserInfoOutput>>(SourceModels);
             }
             catch (Exception ex)
