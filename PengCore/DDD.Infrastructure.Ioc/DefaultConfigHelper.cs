@@ -14,10 +14,12 @@ namespace DDD.Infrastructure.IoC
             services.AddTransient<Interfaces.IUnitOfWorkFactory, DDD.Infrastructure.DapperUnitOfWorkFactory>();
 
             services.AddTransient<DDD.Repository.Interfaces.IUserInfoRepository, Repository.UserInfoRepository>();
+            services.AddTransient<DDD.Repository.Interfaces.IDemoRepository, Repository.DemoRepository>();
 
             #region  Applicaton
-            
+
             services.AddTransient<Application.Interfaces.IUserInfoService, Application.Services.UserInfoService>();
+            services.AddTransient<Application.Interfaces.IDemoService, Application.Services.DemoService>();
 
             #endregion
         }

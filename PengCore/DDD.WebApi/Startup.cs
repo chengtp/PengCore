@@ -33,8 +33,8 @@ namespace DDD.WebApi
         {
             Configuration = configuration;
             Repository = LogManager.CreateRepository("NETCoreRepository");
-                        // 指定配置文件
-             XmlConfigurator.Configure(Repository, new FileInfo("log4net.config"));
+            // 指定配置文件
+            XmlConfigurator.Configure(Repository, new FileInfo("log4net.config"));
         }
         /// <summary>
         /// Configuration
@@ -52,7 +52,8 @@ namespace DDD.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
+            //添加 HttpContext
+            services.AddSingleton<Microsoft.AspNetCore.Http.IHttpContextAccessor, Microsoft.AspNetCore.Http.HttpContextAccessor>();
             //添加系统配置
             services.Configure<ApplicationConfiguration>(Configuration.GetSection("ConnectionStrings"));
 
@@ -118,6 +119,9 @@ namespace DDD.WebApi
             app.UseHttpsRedirection();
 
             app.UseMvc();
+
+            //添加httpcontext
+           // DDD.Common.HttpContext.Configure(app.ApplicationServices.GetRequiredService<Microsoft.AspNetCore.Http.IHttpContextAccessor>());
 
             //Swagger
             app.UseSwagger();

@@ -45,9 +45,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Infrastructure.Dtos", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Common", "DDD.Common\DDD.Common.csproj", "{70453A81-3E5E-4D2E-84B3-66B665653F37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Infrastructure.Interfaces", "DDD.Infrastructure.Interfaces\DDD.Infrastructure.Interfaces.csproj", "{5E7D492C-7AD6-4171-BE12-FF78D4A580A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Infrastructure.Interfaces", "DDD.Infrastructure.Interfaces\DDD.Infrastructure.Interfaces.csproj", "{5E7D492C-7AD6-4171-BE12-FF78D4A580A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Infrastructure.AutoMapper", "DDD.Infrastructure.AutoMapper\DDD.Infrastructure.AutoMapper.csproj", "{CD14A451-BBF2-49FF-851A-823FA9E2EA61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Infrastructure.AutoMapper", "DDD.Infrastructure.AutoMapper\DDD.Infrastructure.AutoMapper.csproj", "{CD14A451-BBF2-49FF-851A-823FA9E2EA61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Infrastructure.SqlMaps", "DDD.Infrastructure.SqlMaps\DDD.Infrastructure.SqlMaps.csproj", "{F9C14929-6811-4F35-8799-8D36099A84FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -127,6 +129,10 @@ Global
 		{CD14A451-BBF2-49FF-851A-823FA9E2EA61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD14A451-BBF2-49FF-851A-823FA9E2EA61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD14A451-BBF2-49FF-851A-823FA9E2EA61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9C14929-6811-4F35-8799-8D36099A84FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9C14929-6811-4F35-8799-8D36099A84FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9C14929-6811-4F35-8799-8D36099A84FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9C14929-6811-4F35-8799-8D36099A84FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -150,6 +156,7 @@ Global
 		{70453A81-3E5E-4D2E-84B3-66B665653F37} = {467B1645-42F6-4B3A-BAFA-D39BA22AFE50}
 		{5E7D492C-7AD6-4171-BE12-FF78D4A580A8} = {467B1645-42F6-4B3A-BAFA-D39BA22AFE50}
 		{CD14A451-BBF2-49FF-851A-823FA9E2EA61} = {467B1645-42F6-4B3A-BAFA-D39BA22AFE50}
+		{F9C14929-6811-4F35-8799-8D36099A84FF} = {467B1645-42F6-4B3A-BAFA-D39BA22AFE50}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AEAE5DC6-764E-4C6E-A768-ABFEA6D688AA}

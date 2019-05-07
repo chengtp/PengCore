@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--根节点-->
+<sqlMap>
+  <!--声明增删改查 sql的总节点-->
+  <statements>
+
+    <!--声明查询sql 传入参数id值：唯一标识 ；type枚举: select ,procedure ； parameterMap :参数Id -->
+    <statement id="GetModel" type="select" parameterMap="GetModelParams">
+      select top 1 * from T_Demo where Id =#Id#;
+    </statement>
+
+
+    <statement id="index2" type="procedure" parameterMap="indexParams2">
+      usp_k_GetUserInfo
+    </statement>
+
+
+  </statements>
+
+  <!--声明请求参数总节点-->
+  <parameterMaps>
+
+    <!--通过id定位是那种参数集合-->
+    <parameterMap id="GetModelParams">
+      <!--property 实体类的属性（不能够修改），column 对应sql中的参数，可修改-->
+      <parameter property="Id" column="Id"></parameter>
+    </parameterMap>
+
+  </parameterMaps>
+
+</sqlMap>
+
