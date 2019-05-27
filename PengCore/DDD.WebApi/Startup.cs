@@ -125,7 +125,6 @@ namespace DDD.WebApi
 
             //Swagger
             app.UseSwagger();
-
             app.UseSwaggerUI(c =>
             {
                 c.DocumentTitle = "MyBigDataDocument";

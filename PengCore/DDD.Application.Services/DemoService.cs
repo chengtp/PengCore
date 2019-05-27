@@ -60,9 +60,9 @@ namespace DDD.Application.Services
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public async Task<DemoOutput> GetModelBysql(Guid Id)
+        public async Task<DemoOutput> GetModelBysql(Guid Id,string userName)
         {
-            var model = await iDemoRepository.GetModelBysql(Id);
+            var model = await iDemoRepository.GetModelBysql(Id, userName);
             return modelMapper.Map<DemoOutput>(model);
         }
     }

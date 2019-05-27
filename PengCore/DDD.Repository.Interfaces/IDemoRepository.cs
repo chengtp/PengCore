@@ -16,6 +16,6 @@ namespace DDD.Repository.Interfaces
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        Task<T_Demo> GetModelBysql(Guid Id);
+        Task<T_Demo> GetModelBysql(Guid Id,string userName);
     }
 }

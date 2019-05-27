@@ -11,6 +11,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DDD.WebApi.Controllers
 {
+    /// <summary>
+    /// 测试控制器
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class DemoController : ControllerBase
@@ -34,18 +37,21 @@ namespace DDD.WebApi.Controllers
         /// <summary>
         ///通过Id 查询 demo一条数据
         /// </summary>
+        /// <param name="Id">7A46AEB8-EA36-4D3B-B51A-F0B4D06B006A</param>
+        /// <param name="userName">chengtianpeng</param>
         /// <remarks>
         /// 例子
         /// GetModelBySql
         /// </remarks>
         /// <returns></returns>
+
         [HttpGet]
         [Route("GetModelBySql")]
-        public async Task<ActionResult> GetModelBySql(Guid Id)
+        public async Task<ActionResult> GetModelBySql(Guid Id,string userName)
         {
             if (Id != null && Id != Guid.Empty)
             {
-                var models = await iDemoService.GetModelBysql(Id);
+                var models = await iDemoService.GetModelBysql(Id, userName);
                 return Ok(models);
             }
             else

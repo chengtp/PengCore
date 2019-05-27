@@ -119,11 +119,11 @@ namespace DDD.Common
                         model.oprationType = (OperationType)Enum.Parse(typeof(OperationType), item.Attributes.GetNamedItem("type").InnerText);
                         if (model.oprationType != OperationType.procedure)
                         {
-                            model.commandType = System.Data.CommandType.Text;
+                            model.commandType = Common.OperationType.select;
                         }
                         else
                         {
-                            model.commandType = System.Data.CommandType.StoredProcedure;
+                            model.commandType = Common.OperationType.procedure;
                         }
                         model.sqlStatement = item.InnerText;
                         if (item.Attributes.GetNamedItem("parameterMap") != null)
@@ -151,6 +151,7 @@ namespace DDD.Common
                             {
                                 SqlParameterModels modelParam = new SqlParameterModels();
                                 modelParam.property = itemListPa.Attributes.GetNamedItem("property").InnerText;
+                                modelParam.propertyType = itemListPa.Attributes.GetNamedItem("propertyType").InnerText;
                                 modelParam.column = itemListPa.Attributes.GetNamedItem("column").InnerText;
                                 modelParams.Add(modelParam);
                             }
@@ -182,7 +183,7 @@ namespace DDD.Common
         /// <summary>
         /// 指定如何解释命令字符串。
         /// </summary>
-        public System.Data.CommandType commandType { get; set; } = System.Data.CommandType.Text;
+        public Common.OperationType commandType { get; set; } = Common.OperationType.select;
         /// <summary>
         /// 传入参数id值：唯一标识
         /// </summary>
@@ -210,6 +211,10 @@ namespace DDD.Common
         /// 实体参数
         /// </summary>
         public string property { get; set; }
+        /// <summary>
+        /// 参数类型
+        /// </summary>
+        public string propertyType { get; set; }
         /// <summary>
         /// 对应sql中的参数列名称
         /// </summary>

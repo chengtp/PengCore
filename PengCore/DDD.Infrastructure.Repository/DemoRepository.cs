@@ -28,7 +28,7 @@ namespace DDD.Infrastructure.Repository
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public async Task<T_Demo> GetModelBysql(Guid Id)
+        public async Task<T_Demo> GetModelBysql(Guid Id,string userName)
         {
 
             DDD.Common.SqlModel sqlModel = DDD.Common.SerializationHelper.XmlFileToStringSql("Demo.xml", "GetModel");
@@ -40,27 +40,30 @@ namespace DDD.Infrastructure.Repository
             #region 参数
 
             Dapper.DynamicParameters param = new Dapper.DynamicParameters();
-            //得到sql中的参数集合
-            List<string> sqlParamList = DDD.Common.StringHelper.GetStringList(sqlModel);
-            //遍历xml中的参数集合
-            List<DDD.Common.SqlParameterModels> listparam = sqlModel.listParameter;
-            if (listparam != null && listparam.Any())
-            {
-                Guid ddd = Id;
-                Type type = sqlModel.GetType();
-                var ss = type.GetProperties().FirstOrDefault(m=>m.Name=="id");
-                var sss = ss.PropertyType.Name; //== System.Data.DbType.Guid   需要修改为 通用的方法
 
-                foreach (DDD.Common.SqlParameterModels item in listparam)
-                {
-                    if (item.property == nameof(Id))
-                    {
-                        //处理sql中的参数问题
-                        sqlModel.sqlStatement = DDD.Common.StringHelper.GetStringSql(sqlParamList, sqlModel.sqlStatement, item.property);
-                        param.Add(item.column, Id, System.Data.DbType.Guid, System.Data.ParameterDirection.Input);
-                    }
-                }
-            }
+            Dictionary<string, dynamic> dict = new Dictionary<string, dynamic>();
+            dict.Add(nameof(Id),Id);
+            dict.Add(nameof(userName), userName);
+            param= DDD.Common.StringHelper.GetParams(sqlModel, dict);
+
+
+          
+            ////得到sql中的参数集合
+            //List<string> sqlParamList = DDD.Common.StringHelper.GetStringList(sqlModel.commandType,sqlModel.sqlStatement);
+            ////遍历xml中的参数集合
+            //List<DDD.Common.SqlParameterModels> listparam = sqlModel.listParameter;
+            //if (listparam != null && listparam.Any())
+            //{
+            //    foreach (DDD.Common.SqlParameterModels item in listparam)
+            //    {
+            //        if (item.property == nameof(Id))
+            //        {
+            //            //处理sql中的参数问题
+            //            sqlModel.sqlStatement = DDD.Common.StringHelper.GetStringSql(sqlParamList, sqlModel.sqlStatement, item.property);
+            //            param.Add(item.column, Id, System.Data.DbType.Guid, System.Data.ParameterDirection.Input);
+            //        }
+            //    }
+            //}
             #endregion
 
 

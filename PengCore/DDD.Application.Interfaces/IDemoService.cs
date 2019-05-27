@@ -19,6 +19,6 @@ namespace DDD.Application.Interfaces
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        Task<DemoOutput> GetModelBysql(Guid Id);
+        Task<DemoOutput> GetModelBysql(Guid Id,string userName);
     }
 }
