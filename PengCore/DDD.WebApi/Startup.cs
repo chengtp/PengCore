@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using DDD.Infrastructure;
-using DDD.Infrastructure.Dtos.Config;
 using log4net;
 using log4net.Config;
 using log4net.Repository;
@@ -13,6 +12,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -51,20 +51,35 @@ namespace DDD.WebApi
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            //注册sesion
+            services.AddSession(options=> {
+                options.IdleTimeout = TimeSpan.FromHours(2);
+                options.Cookie.HttpOnly = true;
+            });
+           // services.AddMemoryCache(); //使用本地缓存必须添加
+
+            //注册mvc服务
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             //添加 HttpContext
             services.AddSingleton<Microsoft.AspNetCore.Http.IHttpContextAccessor, Microsoft.AspNetCore.Http.HttpContextAccessor>();
             //添加系统配置
-            services.Configure<ApplicationConfiguration>(Configuration.GetSection("ConnectionStrings"));
+            services.Configure<Infrastructure.Dtos.Config.ApplicationConfiguration>(Configuration.GetSection("ConnectionStrings"));
+            services.Configure<Infrastructure.Dtos.AppSettings>(Configuration.GetSection("AppSettings"));
 
-            //连接字符串
-            var connection = Configuration.GetConnectionString("sqlserver");
+            //默认数据库类型
+            var componentDbType = Configuration.GetConnectionString("ComponentDbType");
+            
+            //默认连接字符串
+            var connection = Configuration[ string.Format("ConnectionStrings:ConnectionString:{0}", componentDbType)];
             //连接字符串添加到配置中
-            services.AddDapperDBContext<SqlserverDBContext>(options =>
+            if (componentDbType == "sqlserver")
             {
-                options.Configuration = connection.ToString();
-            });
-
+                services.AddDapperDBContext<SqlserverDBContext>(options => { options.Configuration = connection.ToString(); });
+            }
+            else if (componentDbType == "mysql") {
+                services.AddDapperDBContext<MysqlDBContext>(options => { options.Configuration = connection.ToString(); });
+            }
+            
             //添加Ioc
             Infrastructure.IoC.DefaultConfigHelper.RegisterBasicType(services);
 
@@ -73,7 +88,7 @@ namespace DDD.WebApi
             {
                 cfg.AddProfile(new Infrastructure.AutoMapper.ServiceProfiles());
             });
-
+            //注册Mapper
             services.AddAutoMapper();
 
 
@@ -121,7 +136,7 @@ namespace DDD.WebApi
             app.UseMvc();
 
             //添加httpcontext
-           // DDD.Common.HttpContext.Configure(app.ApplicationServices.GetRequiredService<Microsoft.AspNetCore.Http.IHttpContextAccessor>());
+            // DDD.Common.HttpContext.Configure(app.ApplicationServices.GetRequiredService<Microsoft.AspNetCore.Http.IHttpContextAccessor>());
 
             //Swagger
             app.UseSwagger();

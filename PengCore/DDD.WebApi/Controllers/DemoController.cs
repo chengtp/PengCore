@@ -8,6 +8,7 @@ using log4net;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace DDD.WebApi.Controllers
 {
@@ -18,20 +19,24 @@ namespace DDD.WebApi.Controllers
     [ApiController]
     public class DemoController : ControllerBase
     {
-        private DapperDBContext _context;
-        private IDemoService iDemoService;
-        private readonly AutoMapper.IMapper modelMapper;
-        private ILog Log;
+        private DapperDBContext context;    //已注入默认数据库，事务操作
+        private IDemoService iDemoService;  //应用层:数据操作
+        private readonly AutoMapper.IMapper modelMapper; //Dto映射
+        private ILog Log;  //日志文件
+        private readonly IOptions<Infrastructure.Dtos.AppSettings> appSettings; //配置文件数据
         /// <summary>
         /// DemoController
         /// </summary>
-        public DemoController(DapperDBContext context, IDemoService _iDemoService,
-            AutoMapper.IMapper _modelMapper, IHostingEnvironment hostingEnv)
+        public DemoController(DapperDBContext _context
+            , IDemoService _iDemoService,
+            AutoMapper.IMapper _modelMapper, IHostingEnvironment hostingEnv
+            , IOptions<Infrastructure.Dtos.AppSettings> _appSettings)
         {
-            _context = context;
+            context = _context;
             iDemoService = _iDemoService;
             modelMapper = _modelMapper;
             this.Log = LogManager.GetLogger(Startup.Repository.Name, typeof(HomeController));
+            appSettings = _appSettings;
         }
 
         /// <summary>
@@ -51,7 +56,9 @@ namespace DDD.WebApi.Controllers
         {
             if (Id != null && Id != Guid.Empty)
             {
-                var models = await iDemoService.GetModelBysql(Id, userName);
+                // appSettings.Value..
+               
+                 var models = await iDemoService.GetModelBysql(Id, userName);
                 return Ok(models);
             }
             else

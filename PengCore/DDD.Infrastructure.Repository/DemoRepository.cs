@@ -3,8 +3,11 @@ using Dapper.Contrib.Extensions;
 using DDD.Domain;
 using DDD.Infrastructure.Dtos.PageList;
 using DDD.Repository.Interfaces;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,11 +19,13 @@ namespace DDD.Infrastructure.Repository
     /// </summary>
     public class DemoRepository : BaseRepository<T_Demo>, IDemoRepository
     {
-        private DapperDBContext _context;
-        public DemoRepository(DapperDBContext context)
-            : base(context)
+        private DapperDBContext context;
+        private readonly IOptions<Infrastructure.Dtos.AppSettings> appSettings; //配置文件数据
+        public DemoRepository(DapperDBContext _context, IOptions<Infrastructure.Dtos.AppSettings> _appSettings)
+            : base(_context)
         {
-            _context = context;
+            context = _context;
+            appSettings = _appSettings;
         }
 
         /// <summary>
@@ -28,7 +33,7 @@ namespace DDD.Infrastructure.Repository
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public async Task<T_Demo> GetModelBysql(Guid Id,string userName)
+        public async Task<T_Demo> GetModelBysql(Guid Id, string userName)
         {
 
             DDD.Common.SqlModel sqlModel = DDD.Common.SerializationHelper.XmlFileToStringSql("Demo.xml", "GetModel");
@@ -42,12 +47,12 @@ namespace DDD.Infrastructure.Repository
             Dapper.DynamicParameters param = new Dapper.DynamicParameters();
 
             Dictionary<string, dynamic> dict = new Dictionary<string, dynamic>();
-            dict.Add(nameof(Id),Id);
+            dict.Add(nameof(Id), Id);
             dict.Add(nameof(userName), userName);
-            param= DDD.Common.StringHelper.GetParams(sqlModel, dict);
+            param = DDD.Common.StringHelper.GetParams(sqlModel, dict);
 
 
-          
+
             ////得到sql中的参数集合
             //List<string> sqlParamList = DDD.Common.StringHelper.GetStringList(sqlModel.commandType,sqlModel.sqlStatement);
             ////遍历xml中的参数集合
@@ -80,9 +85,16 @@ namespace DDD.Infrastructure.Repository
             {
 
             };
+
+            //var test=  context_PMS._connection.Query<string>("SELECT Password FROM dbo.ss_User WHERE LoginName ='admin' ");
+            var test = appSettings.Value;
+            IDbConnection connectionPMS = new SqlConnection("");
+            // connectionPMS.Open();
+          
+
             return await QueryPageAsync(request);
 
-            //  return await _context._connection.GetAllAsync<T_Demo>();
+            //  return await context._connection.GetAllAsync<T_Demo>();
         }
 
 

@@ -11,6 +11,13 @@ namespace DDD.Infrastructure.Dtos.Config
     {
         public string DefalutDatabase { get; set; }
         public string ComponentDbType { get; set; }
-        public string Sqlserver { get; set; }
+        public ConnectionString ConnectionStr { get; set; }
+    }
+
+    public class ConnectionString
+    {
+        public string sqlserver { get; set; }
+        public string mysql { get; set; }
+        public string oracle { get; set; }
     }
 }
