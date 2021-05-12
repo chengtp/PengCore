@@ -6,7 +6,7 @@ namespace DDD.Domain
     /// <summary>
     /// 基础表
     /// </summary>
-    public class BaseModelCreate : DomainModel.AggregateRoot
+    public class BaseCreateModel : DomainModel.AggregateRoot
     {
         /// <summary>
         /// 唯一标识

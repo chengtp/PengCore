@@ -10,5 +10,7 @@ namespace DDD.Application.Interfaces
     public interface IUserInfoService
     {
         Task<PagedResult<UserInfoOutput>> GetModels();
+
+        Task<UserInfoLoginOut> GetModelByLogin(UserInfoLoginInput model);
     }
 }

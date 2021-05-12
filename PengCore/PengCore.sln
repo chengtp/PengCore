@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.271
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.0 Presentation", "1.0 Presentation", "{C7859159-7EF9-48C0-AAD4-37DA82254FC0}"
 EndProject
@@ -49,7 +49,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Infrastructure.Interfac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Infrastructure.AutoMapper", "DDD.Infrastructure.AutoMapper\DDD.Infrastructure.AutoMapper.csproj", "{CD14A451-BBF2-49FF-851A-823FA9E2EA61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Infrastructure.SqlMaps", "DDD.Infrastructure.SqlMaps\DDD.Infrastructure.SqlMaps.csproj", "{F9C14929-6811-4F35-8799-8D36099A84FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Infrastructure.SqlMaps", "DDD.Infrastructure.SqlMaps\DDD.Infrastructure.SqlMaps.csproj", "{F9C14929-6811-4F35-8799-8D36099A84FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6.0 Authentication", "6.0 Authentication", "{F5395665-0235-4041-B237-5EA60276407F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.IdentityClient", "DDD.IdentityClient\DDD.IdentityClient.csproj", "{0C7B7479-AD5D-4207-AFE1-330A50CC925B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.IdentityServerCenter", "DDD.IdentityServerCenter\DDD.IdentityServerCenter.csproj", "{EAC1F828-134A-4CD4-BB55-A6EA3AA3BB67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.IdentityClient2", "DDD.IdentityClient2\DDD.IdentityClient2.csproj", "{1805D770-01CD-48F6-8B94-8B40FBDCAC3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -133,6 +141,18 @@ Global
 		{F9C14929-6811-4F35-8799-8D36099A84FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9C14929-6811-4F35-8799-8D36099A84FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9C14929-6811-4F35-8799-8D36099A84FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C7B7479-AD5D-4207-AFE1-330A50CC925B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C7B7479-AD5D-4207-AFE1-330A50CC925B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C7B7479-AD5D-4207-AFE1-330A50CC925B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C7B7479-AD5D-4207-AFE1-330A50CC925B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAC1F828-134A-4CD4-BB55-A6EA3AA3BB67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC1F828-134A-4CD4-BB55-A6EA3AA3BB67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC1F828-134A-4CD4-BB55-A6EA3AA3BB67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC1F828-134A-4CD4-BB55-A6EA3AA3BB67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1805D770-01CD-48F6-8B94-8B40FBDCAC3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1805D770-01CD-48F6-8B94-8B40FBDCAC3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1805D770-01CD-48F6-8B94-8B40FBDCAC3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1805D770-01CD-48F6-8B94-8B40FBDCAC3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -157,6 +177,9 @@ Global
 		{5E7D492C-7AD6-4171-BE12-FF78D4A580A8} = {467B1645-42F6-4B3A-BAFA-D39BA22AFE50}
 		{CD14A451-BBF2-49FF-851A-823FA9E2EA61} = {467B1645-42F6-4B3A-BAFA-D39BA22AFE50}
 		{F9C14929-6811-4F35-8799-8D36099A84FF} = {467B1645-42F6-4B3A-BAFA-D39BA22AFE50}
+		{0C7B7479-AD5D-4207-AFE1-330A50CC925B} = {F5395665-0235-4041-B237-5EA60276407F}
+		{EAC1F828-134A-4CD4-BB55-A6EA3AA3BB67} = {F5395665-0235-4041-B237-5EA60276407F}
+		{1805D770-01CD-48F6-8B94-8B40FBDCAC3F} = {F5395665-0235-4041-B237-5EA60276407F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AEAE5DC6-764E-4C6E-A768-ABFEA6D688AA}

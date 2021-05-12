@@ -47,5 +47,16 @@ namespace DDD.Application.Services
 
             return models;
         }
+
+        /// <summary>
+        /// 用户登录
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public async Task<UserInfoLoginOut> GetModelByLogin(UserInfoLoginInput model)
+        {
+            var userInfo = await iUserInfoRepository.GetModelByLogin(model);
+            return userInfo;
+        }
     }
 }

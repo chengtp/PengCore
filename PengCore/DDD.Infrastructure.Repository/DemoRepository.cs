@@ -20,8 +20,8 @@ namespace DDD.Infrastructure.Repository
     public class DemoRepository : BaseRepository<T_Demo>, IDemoRepository
     {
         private DapperDBContext context;
-        private readonly IOptions<Infrastructure.Dtos.AppSettings> appSettings; //配置文件数据
-        public DemoRepository(DapperDBContext _context, IOptions<Infrastructure.Dtos.AppSettings> _appSettings)
+        private readonly IOptions<Infrastructure.Dtos.Config.AppSettings> appSettings; //配置文件数据
+        public DemoRepository(DapperDBContext _context, IOptions<Infrastructure.Dtos.Config.AppSettings> _appSettings)
             : base(_context)
         {
             context = _context;

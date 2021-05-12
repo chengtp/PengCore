@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using DDD.Application.Interfaces;
 using DDD.Infrastructure;
 using log4net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,20 +18,21 @@ namespace DDD.WebApi.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class DemoController : ControllerBase
     {
         private DapperDBContext context;    //已注入默认数据库，事务操作
         private IDemoService iDemoService;  //应用层:数据操作
         private readonly AutoMapper.IMapper modelMapper; //Dto映射
         private ILog Log;  //日志文件
-        private readonly IOptions<Infrastructure.Dtos.AppSettings> appSettings; //配置文件数据
+        private readonly IOptions<Infrastructure.Dtos.Config.AppSettings> appSettings; //配置文件数据
         /// <summary>
         /// DemoController
         /// </summary>
         public DemoController(DapperDBContext _context
             , IDemoService _iDemoService,
             AutoMapper.IMapper _modelMapper, IHostingEnvironment hostingEnv
-            , IOptions<Infrastructure.Dtos.AppSettings> _appSettings)
+            , IOptions<Infrastructure.Dtos.Config.AppSettings> _appSettings)
         {
             context = _context;
             iDemoService = _iDemoService;

@@ -140,7 +140,7 @@ namespace DDD.Infrastructure.Repository
         }
         
         /// <summary>
-        /// 实体查询多个实体集合数据
+        /// 通过ssql查询多个实体集合数据
         /// </summary>
         /// <param name="commandTimeout"></param>
         /// <returns></returns>
@@ -174,6 +174,21 @@ namespace DDD.Infrastructure.Repository
             return await _context._connection.GetAsync<TEntity>(id, _context._transaction, commandTimeout);
         }
 
+
+
+        /// <summary>
+        /// 通过sql 查询集合
+        /// </summary>
+        /// <typeparam name="TFirst"></typeparam>
+        /// <typeparam name="TSecond"></typeparam>
+        /// <typeparam name="TReturn"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="map"></param>
+        /// <param name="param"></param>
+        /// <param name="splitOn"></param>
+        /// <param name="commandTimeout"></param>
+        /// <param name="commandType"></param>
+        /// <returns></returns>
         public virtual async Task<IEnumerable<TReturn>> QueryAsync<TFirst, TSecond, TReturn>(string sql, Func<TFirst, TSecond, TReturn> map, object param = null, string splitOn = "Id", int? commandTimeout = null, CommandType commandType = CommandType.Text)
         {
             return await _context._connection.QueryAsync(sql, map, param, _context._transaction, true, splitOn, commandTimeout, commandType);

@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DDD.Domain\DDD.Domain.csproj" />
+    <ProjectReference Include="..\DDD.Infrastructure.SqlMaps\DDD.Infrastructure.SqlMaps.csproj" />
     <ProjectReference Include="..\DDD.Infrastructure\DDD.Infrastructure.csproj" />
     <ProjectReference Include="..\DDD.Repository.Interfaces\DDD.Repository.Interfaces.csproj" />
   </ItemGroup>

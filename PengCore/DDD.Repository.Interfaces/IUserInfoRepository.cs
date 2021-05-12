@@ -1,4 +1,5 @@
-﻿using DDD.Domain;
+﻿using DDD.Application.Dtos;
+using DDD.Domain;
 using DDD.Infrastructure.Dtos.PageList;
 using System;
 using System.Collections.Generic;
@@ -10,5 +11,7 @@ namespace DDD.Repository.Interfaces
     public interface IUserInfoRepository:BaseInterfaces.IRepository<Sys_UserInfo>
     {
         Task<PagedResult<Sys_UserInfo>> GetModels();
+
+        Task<UserInfoLoginOut> GetModelByLogin(UserInfoLoginInput model);
     }
 }

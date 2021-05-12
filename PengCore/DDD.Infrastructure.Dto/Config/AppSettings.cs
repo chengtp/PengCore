@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDD.Infrastructure.Dtos
+namespace DDD.Infrastructure.Dtos.Config
 {
     /// <summary>
     /// 配置字段数据

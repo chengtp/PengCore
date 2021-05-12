@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Dapper.Contrib.Extensions;
+using DDD.Application.Dtos;
 using DDD.Domain;
 using DDD.Infrastructure.Dtos.PageList;
 using DDD.Repository.Interfaces;
@@ -43,6 +44,20 @@ namespace DDD.Infrastructure.Repository
 
         }
 
+        /// <summary>
+        /// 用户登录
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public async Task<UserInfoLoginOut> GetModelByLogin(UserInfoLoginInput model)
+        {
+            DynamicParameters dparams = new DynamicParameters();
+            dparams.Add("LoginName", model.LoginName, System.Data.DbType.String, System.Data.ParameterDirection.Input);
+            dparams.Add("Password", model.Password, System.Data.DbType.String, System.Data.ParameterDirection.Input);
+            return await _context._connection.QueryFirstOrDefault(DDD.Infrastructure.SqlMaps.UserSql.UserInfoLogin(model.LoginName, model.Password), dparams);
+
+        }
+
         public async Task<PagedResult<Sys_UserInfo>> GetModels()
         {
             PagedRequest request = new PagedRequest()
@@ -52,7 +67,7 @@ namespace DDD.Infrastructure.Repository
             var list = await QueryPageAsync(request);
 
             return list;
-          //  return await _context._connection.GetAllAsync<Sys_UserInfo>();
+            //  return await _context._connection.GetAllAsync<Sys_UserInfo>();
         }
     }
 }

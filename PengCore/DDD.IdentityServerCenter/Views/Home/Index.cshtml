@@ -1,0 +1,93 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    @if (User.Identity.IsAuthenticated == true)
+    {
+        <a href="/account/Logout" style="float:right;color:#ff0000;font-size:30px">退出登录</a>
+    }
+
+    <h3>User claims  服务认证中心页面</h3>
+
+    <div class="row">
+
+        <dl>
+            @foreach (var claim in User.Claims)
+            {
+                <dt>@claim.Type</dt>
+                <dd>@claim.Value</dd>
+
+            }
+        </dl>
+    </div>
+
+
+</div>
+
+
+
+
+<div class="row">
+    <div class="col-md-3 text-center">
+        <a target="_blank" href="http://172.16.8.99/">
+            <div>
+                <img width="150" height="150" src="/images/pms.png" alt="Microsoft Azure">
+            </div>
+            <h4>采办系统</h4>
+            <h4>PMS</h4>
+        </a>
+    </div>
+
+    <div class="col-md-3 text-center">
+        <a target="_blank" href="http://172.16.8.98/">
+            <div>
+                <img width="150" height="150" src="/images/pms.png" alt="Microsoft Azure">
+            </div>
+            <h4>法律系统</h4>
+            <h4>CRS</h4>
+        </a>
+    </div>
+
+    <div class="col-md-3 text-center">
+        <a target="_blank" href="http://172.16.8.96:90/">
+            <div>
+                <img width="150" height="150" src="/images/pms.png" alt="Microsoft Azure">
+            </div>
+            <h4>人力资源系统</h4>
+            <h4>HRIS</h4>
+        </a>
+    </div>
+
+    <div class="col-md-3 text-center">
+        <a target="_blank" href="http://172.16.8.90/">
+            <div>
+                <img width="150" height="150" src="/images/pms.png" alt="Microsoft Azure">
+            </div>
+            <h4>销售系统</h4>
+            <h4>MMS</h4>
+        </a>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-3 text-center">
+        <a target="_blank" href="http://localhost:5001">
+            <div>
+                <img width="150" height="150" src="/images/pms.png" alt="Microsoft Azure">
+            </div>
+            <h4>测试1系统</h4>
+            <h4>test1</h4>
+        </a>
+    </div>
+    <div class="col-md-3 text-center">
+        <a target="_blank" href="http://localhost:5002">
+            <div>
+                <img width="150" height="150" src="/images/pms.png" alt="Microsoft Azure">
+            </div>
+            <h4>测试2系统</h4>
+            <h4>test2</h4>
+        </a>
+    </div>
+</div>

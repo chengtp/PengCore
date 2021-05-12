@@ -2,7 +2,10 @@
 
 namespace DDD.Domain
 {
-    public class BaseModel : BaseModelCreate
+    /// <summary>
+    /// 通用实体
+    /// </summary>
+    public class BaseModel : BaseCreateModel
     {
         /// <summary>
         /// 是否删除；0: 正常;1:删除,默认0正常
