@@ -62,7 +62,7 @@ namespace DDD.Infrastructure.Repository
         {
             PagedRequest request = new PagedRequest()
             {
-
+                 WhereString=" 1=1"
             };
             var list = await QueryPageAsync(request);
 
