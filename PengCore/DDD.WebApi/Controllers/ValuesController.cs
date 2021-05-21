@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using DDD.Application.Interfaces;
 using DDD.Infrastructure;
 using log4net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -33,7 +34,8 @@ namespace DDD.WebApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet("{id}")]
+        [HttpGet("{id}"), AllowAnonymous]
+
         public ActionResult<string> Get(int id)
         {
             return "value";

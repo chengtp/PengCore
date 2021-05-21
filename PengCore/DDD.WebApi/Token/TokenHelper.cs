@@ -50,7 +50,12 @@ namespace DDD.WebApi.Token
         /// <returns></returns>
         public Token CreateAccessToken(DDD.Application.Dtos.UserInfoInput user)
         {
-            Claim[] claims = new Claim[] { new Claim(ClaimTypes.NameIdentifier, user.LoginName), new Claim(ClaimTypes.Name, user.UserName) };
+            Claim[] claims = new Claim[] 
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.LoginName),
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(JwtRegisteredClaimNames.Iat,DateTimeOffset.Now.ToUnixTimeSeconds().ToString(), user.UserName),
+            };
 
             return CreateToken(claims, TokenType.AccessToken);
         }
@@ -62,7 +67,12 @@ namespace DDD.WebApi.Token
         /// <returns></returns>
         public ComplexToken CreateToken(DDD.Application.Dtos.UserInfoInput user)
         {
-            Claim[] claims = new Claim[] { new Claim(ClaimTypes.NameIdentifier, user.LoginName), new Claim(ClaimTypes.Name, user.UserName) };
+            Claim[] claims = new Claim[] 
+            { 
+                new Claim(ClaimTypes.NameIdentifier, user.LoginName),
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(JwtRegisteredClaimNames.Iat,DateTimeOffset.Now.ToUnixTimeSeconds().ToString(), user.UserName),
+            };
 
             return CreateToken(claims);
         }

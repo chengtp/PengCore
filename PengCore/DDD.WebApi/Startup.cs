@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DDD.Infrastructure;
+using DDD.WebApi.Filters;
 using log4net;
 using log4net.Config;
 using log4net.Repository;
@@ -57,7 +58,13 @@ namespace DDD.WebApi
             // services.AddMemoryCache(); //使用本地缓存必须添加
 
             //注册mvc服务
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(action=> {
+                //配置过滤器
+                action.Filters.Add<ExceptionFilter>();          //异常处理
+                action.Filters.Add<AuthorizationFilter>();      //用户授权
+                action.Filters.Add<JwtCheckFilterAttribute>();  //验证token有效性
+                action.Filters.Add<ResultFilter>();             //token延迟
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             //添加 HttpContext
             services.AddSingleton<Microsoft.AspNetCore.Http.IHttpContextAccessor, Microsoft.AspNetCore.Http.HttpContextAccessor>();
             //添加系统配置
