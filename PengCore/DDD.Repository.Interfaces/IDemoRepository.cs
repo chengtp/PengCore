@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace DDD.Repository.Interfaces
 {
+    /// <summary>
+    /// Demo仓储接口
+    /// </summary>
     public interface IDemoRepository : BaseInterfaces.IRepository<T_Demo>
     {
         Task<PagedResult<T_Demo>> GetModels();

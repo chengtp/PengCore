@@ -1,5 +1,4 @@
-﻿using MicBeach.Util.Paging;
-using MicBeach.Util.IoC;
+﻿using DDD.Util.Paging;
 using System;
 using System.Collections.Generic;
 using System.Linq;

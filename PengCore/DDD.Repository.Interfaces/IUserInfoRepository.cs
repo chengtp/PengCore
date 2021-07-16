@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace DDD.Repository.Interfaces
 {
+    /// <summary>
+    /// 用户仓储接口
+    /// </summary>
     public interface IUserInfoRepository:BaseInterfaces.IRepository<Sys_UserInfo>
     {
         Task<PagedResult<Sys_UserInfo>> GetModels();

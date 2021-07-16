@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace DDD.Infrastructure.Repository
 {
     /// <summary>
-    /// 用户
+    /// 用户仓储数据
     /// </summary>
     public class UserInfoRepository : BaseRepository<Sys_UserInfo>, IUserInfoRepository
     {

@@ -1,5 +1,5 @@
 ﻿using DDD.Util.CQuery;
-using MicBeach.Util.Paging;
+using DDD.Util.Paging;
 using DDD.Util.Domain.Aggregation;
 using System;
 using System.Collections.Generic;

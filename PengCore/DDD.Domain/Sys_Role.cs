@@ -10,13 +10,13 @@ namespace DDD.Domain
     public class Sys_Role : BaseModel
     {
         /// <summary>
-        /// 外键  部门表唯一标识
-        /// </summary>
-        public Guid DeptId { get; set; }
-        /// <summary>
-        /// 角色名称
+        /// 角色中文名称
         /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// 角色英文名称
+        /// </summary>
+        public string EName { get; set; }
     }
 }

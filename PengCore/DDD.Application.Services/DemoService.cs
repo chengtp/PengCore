@@ -13,7 +13,7 @@ using DDD.Infrastructure.Dtos.PageList;
 namespace DDD.Application.Services
 {
     /// <summary>
-    /// 测试服务
+    /// 测试服务类
     /// </summary>
     public class DemoService : IDemoService
     {
@@ -60,7 +60,7 @@ namespace DDD.Application.Services
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public async Task<DemoOutput> GetModelBysql(Guid Id,string userName)
+        public async Task<DemoOutput> GetModelBysql(Guid Id, string userName)
         {
             var model = await iDemoRepository.GetModelBysql(Id, userName);
             return modelMapper.Map<DemoOutput>(model);

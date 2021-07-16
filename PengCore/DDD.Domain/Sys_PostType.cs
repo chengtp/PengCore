@@ -1,13 +1,15 @@
 ﻿using Dapper.Contrib.Extensions;
 using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace DDD.Domain
 {
     /// <summary>
-    /// 菜单表（sys_Menu）
+    /// 岗位类型表（Sys_PostType）
     /// </summary>
-    [Table("Sys_Menu")]
-    public class Sys_Menu : BaseModel
+    [Table("Sys_UserInfo")]
+    public class Sys_PostType: BaseModel
     {
         /// <summary>
         /// 父的唯一标识
@@ -20,19 +22,10 @@ namespace DDD.Domain
         /// <summary>
         /// 中文名称
         /// </summary>
-        public string Name { get; set; }
+        public int Name { get; set; }
         /// <summary>
         /// 英文名称
         /// </summary>
-        public string EName { get; set; }
-        /// <summary>
-        /// 图标
-        /// </summary>
-        public string Icon { get; set; }
-        /// <summary>
-        /// 路径
-        /// </summary>
-        public string Link { get; set; }
-
+        public int EName { get; set; }
     }
 }

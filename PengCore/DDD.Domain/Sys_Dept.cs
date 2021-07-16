@@ -18,9 +18,12 @@ namespace DDD.Domain
         /// </summary>
         public int Level { get; set; }
         /// <summary>
-        /// 名称
+        /// 中文名称
         /// </summary>
         public string Name { get; set; }
-
+        /// <summary>
+        /// 英文名称
+        /// </summary>
+        public string EName { get; set; }
     }
 }

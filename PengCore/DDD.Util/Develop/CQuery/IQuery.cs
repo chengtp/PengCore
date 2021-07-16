@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using System.Collections;
-using MicBeach.Util.Paging;
 using DDD.Util.CQuery.CriteriaConvert;
+using DDD.Util.Paging;
 
 namespace DDD.Util.CQuery
 {

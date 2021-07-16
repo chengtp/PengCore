@@ -1,6 +1,6 @@
 ﻿using DDD.Util.DataValidation;
 using DDD.Util.Domain.Repository;
-using MicBeach.Util.ExpressionUtil;
+using DDD.Util.ExpressionUtil;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +8,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using MicBeach.Util.Extension;
-using MicBeach.Util;
+
 
 namespace DDD.Util.Domain.Aggregation
 {

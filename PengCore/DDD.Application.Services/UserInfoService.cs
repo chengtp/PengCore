@@ -11,6 +11,9 @@ using DDD.Infrastructure.Dtos.PageList;
 
 namespace DDD.Application.Services
 {
+    /// <summary>
+    /// 用户服务类
+    /// </summary>
     public class UserInfoService : IUserInfoService
     {
         private DapperDBContext _context;

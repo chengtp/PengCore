@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DDD.Application.Interfaces
 {
+    /// <summary>
+    /// 用户服务接口
+    /// </summary>
     public interface IUserInfoService
     {
         Task<PagedResult<UserInfoOutput>> GetModels();

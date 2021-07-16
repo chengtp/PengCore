@@ -1,4 +1,5 @@
-﻿using MicBeach.Util.ExpressionUtil;
+﻿
+using DDD.Util.ExpressionUtil;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -134,7 +135,7 @@ namespace DDD.Util.CQuery
         /// <returns>IModify object</returns>
         public IModify Subtract(string name, dynamic value)
         {
-            return Calculate(name, CalculateOperator.subtract, value);
+            return Calculate(name, CalculateOperator.Subtract, value);
         }
 
         /// <summary>
@@ -156,7 +157,7 @@ namespace DDD.Util.CQuery
         /// <returns>IModify object</returns>
         public IModify Multiply(string name, dynamic value)
         {
-            return Calculate(name, CalculateOperator.multiply, value);
+            return Calculate(name, CalculateOperator.Multiply, value);
         }
 
         /// <summary>
@@ -178,7 +179,7 @@ namespace DDD.Util.CQuery
         /// <returns>IModify object</returns>
         public IModify Divide(string name, dynamic value)
         {
-            return Calculate(name, CalculateOperator.divide, value);
+            return Calculate(name, CalculateOperator.Divide, value);
         }
 
         /// <summary>

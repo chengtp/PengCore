@@ -1,5 +1,5 @@
 ﻿using DDD.Util.CQuery;
-using MicBeach.Util.Paging;
+using DDD.Util.Paging;
 using System;
 using System.Collections.Generic;
 using System.Linq;

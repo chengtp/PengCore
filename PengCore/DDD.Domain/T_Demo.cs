@@ -6,7 +6,7 @@ namespace DDD.Domain
     /// <summary>
     /// 测试类
     /// </summary>
-    [Table("Sys_UserInfo")]
+    [Table("T_Demo")]
     public class T_Demo : BaseModel
     {
         /// <summary>

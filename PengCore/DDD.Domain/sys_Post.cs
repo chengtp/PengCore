@@ -10,13 +10,21 @@ namespace DDD.Domain
     public class Sys_Post : BaseModel
     {
         /// <summary>
-        /// 外键  部门表唯一标识
+        /// 外键  岗位类型表唯一标识
+        /// </summary>
+        public Guid PostTypeId { get; set; }
+        /// <summary>
+        /// 部门表唯一标识
         /// </summary>
         public Guid DeptId { get; set; }
         /// <summary>
-        /// 岗位名称
+        /// 岗位中文名称
         /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// 岗位英文名称
+        /// </summary>
+        public string EName { get; set; }
 
     }
 }
