@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DDD.Application.Dtos\DDD.Application.Dtos.csproj" />
     <ProjectReference Include="..\DDD.Infrastructure.Dto\DDD.Infrastructure.Dtos.csproj" />
   </ItemGroup>
 

@@ -48,7 +48,7 @@ namespace DDD.WebApi.Token
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public Token CreateAccessToken(DDD.Application.Dtos.UserInfoInput user)
+        public Token CreateAccessToken(DDD.Infrastructure.Dtos.UserInfoInput user)
         {
             Claim[] claims = new Claim[] 
             {
@@ -65,7 +65,7 @@ namespace DDD.WebApi.Token
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public ComplexToken CreateToken(DDD.Application.Dtos.UserInfoInput user)
+        public ComplexToken CreateToken(DDD.Infrastructure.Dtos.UserInfoInput user)
         {
             Claim[] claims = new Claim[] 
             { 
@@ -122,7 +122,7 @@ namespace DDD.WebApi.Token
             {
 
                 //数据库中获取 判断  loginname= code
-                DDD.Application.Dtos.UserInfoInput user = new Application.Dtos.UserInfoInput() { 
+                DDD.Infrastructure.Dtos.UserInfoInput user = new Infrastructure.Dtos.UserInfoInput() { 
                  UserName="admin",
                  Password="123456",
                  LoginName="admin"

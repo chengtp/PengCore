@@ -1,4 +1,4 @@
-﻿using DDD.Application.Dtos;
+﻿using DDD.Infrastructure.Dtos;
 using DDD.Infrastructure.Dtos.PageList;
 using System;
 using System.Collections.Generic;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDD.Application.Dtos
+namespace DDD.Infrastructure.Dtos
 {
     public class UserInfoLoginInput
     {

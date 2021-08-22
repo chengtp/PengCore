@@ -149,6 +149,31 @@ namespace DDD.WebApi.Controllers
             return Ok();
         }
 
+
+        /// <summary>
+        /// test1
+        /// </summary>
+        /// <returns></returns>
+
+        [HttpGet]
+        [Route("test1")]
+        public IActionResult test1()
+        {
+
+            return Ok("test1");
+        }
+
+        /// <summary>
+        /// test2
+        /// </summary>
+        /// <returns></returns>
+
+        [HttpPost]
+        [Route("test2")]
+        public IActionResult test2()
+        {
+            return Ok("test2");
+        }
     }
 
     /// <summary>

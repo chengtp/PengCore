@@ -75,12 +75,12 @@ namespace DDD.WebApi.Controllers
         /// <returns></returns>
         [HttpPost,AllowAnonymous]
         [Route("login")]
-        public  IActionResult login([FromBody] DDD.Application.Dtos.UserInfoLoginOut input)
+        public  IActionResult login([FromBody] DDD.Infrastructure.Dtos.UserInfoInput input)
         {
 
             //验证用户名和密码  
 
-            var user = new DDD.Application.Dtos.UserInfoInput()
+            var user = new DDD.Infrastructure.Dtos.UserInfoInput()
             {
                 LoginName = "admin",
                 Password = "123456",
@@ -115,30 +115,7 @@ namespace DDD.WebApi.Controllers
         }
 
 
-        /// <summary>
-        /// test1
-        /// </summary>
-        /// <returns></returns>
-
-        [HttpGet]
-        [Route("test1")]
-        public IActionResult test1()
-        {
-            
-            return Ok("test1");
-        }
-
-        /// <summary>
-        /// test2
-        /// </summary>
-        /// <returns></returns>
-
-        [HttpPost]
-        [Route("test2")]
-        public IActionResult test2()
-        {
-            return Ok("test2");
-        }
+       
 
         ///// <summary>
         ///// 获取系统信息接口

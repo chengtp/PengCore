@@ -10,8 +10,8 @@ namespace DDD.Infrastructure.AutoMapper
        
         public ServiceProfiles()
         {
-            CreateMap<Domain.Sys_UserInfo, Application.Dtos.UserInfoOutput>();
-            CreateMap<Domain.T_Demo, Application.Dtos.DemoOutput>();
+            CreateMap<Domain.Sys_UserInfo, DDD.Infrastructure.Dtos.UserInfoOutput>();
+            CreateMap<Domain.T_Demo, DDD.Infrastructure.Dtos.DemoOutput>();
             // CreateMap<IEnumerable<Domain.Sys_UserInfo>, IEnumerable<Application.Dtos.UserInfoOutput>>();
         }
     }

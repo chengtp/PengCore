@@ -18,7 +18,7 @@ namespace DDD.WebApi.Token
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        ComplexToken CreateToken(DDD.Application.Dtos.UserInfoInput user);
+        ComplexToken CreateToken(DDD.Infrastructure.Dtos.UserInfoInput user);
         /// <summary>
         /// 创建令牌
         /// </summary>

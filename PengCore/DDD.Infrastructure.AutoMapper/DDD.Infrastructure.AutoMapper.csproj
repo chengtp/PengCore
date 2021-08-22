@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DDD.Application.Dtos\DDD.Application.Dtos.csproj" />
     <ProjectReference Include="..\DDD.Domain\DDD.Domain.csproj" />
+    <ProjectReference Include="..\DDD.Infrastructure.Dto\DDD.Infrastructure.Dtos.csproj" />
   </ItemGroup>
 
 </Project>

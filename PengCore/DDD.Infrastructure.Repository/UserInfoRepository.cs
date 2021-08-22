@@ -1,6 +1,6 @@
 ﻿using Dapper;
 using Dapper.Contrib.Extensions;
-using DDD.Application.Dtos;
+using DDD.Infrastructure.Dtos;
 using DDD.Domain;
 using DDD.Infrastructure.Dtos.PageList;
 using DDD.Repository.Interfaces;
@@ -23,6 +23,7 @@ namespace DDD.Infrastructure.Repository
             _context = context;
         }
 
+
         public void Etesttt()
         {
             DapperUnitOfWorkFactory tttt = new DapperUnitOfWorkFactory(_context);
@@ -44,6 +45,13 @@ namespace DDD.Infrastructure.Repository
 
         }
 
+        public Task<UserInfoLoginOut> GetModelById()
+        {
+            throw new NotImplementedException();
+        }
+
+        #region 用户登录
+
         /// <summary>
         /// 用户登录
         /// </summary>
@@ -58,6 +66,14 @@ namespace DDD.Infrastructure.Repository
 
         }
 
+        #endregion
+
+        #region 查询所有用户集合信息
+
+        /// <summary>
+        /// 查询所有用户集合信息
+        /// </summary>
+        /// <returns></returns>
         public async Task<PagedResult<Sys_UserInfo>> GetModels()
         {
             PagedRequest request = new PagedRequest()
@@ -69,5 +85,27 @@ namespace DDD.Infrastructure.Repository
             return list;
             //  return await _context._connection.GetAllAsync<Sys_UserInfo>();
         }
+
+        #endregion
+
+
+
+        public Task<bool> CreateModel()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<PagedResult<UserInfoLoginOut>> GetModelsBy()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public Task<bool> UpdateModel()
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }

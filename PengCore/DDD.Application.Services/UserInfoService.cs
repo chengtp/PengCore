@@ -1,4 +1,4 @@
-﻿using DDD.Application.Dtos;
+﻿using DDD.Infrastructure.Dtos;
 using DDD.Application.Interfaces;
 using DDD.Infrastructure;
 using DDD.Repository.Interfaces;
@@ -16,6 +16,11 @@ namespace DDD.Application.Services
     /// </summary>
     public class UserInfoService : IUserInfoService
     {
+        #region 构造方法
+
+        /// <summary>
+        /// 构造方法
+        /// </summary>
         private DapperDBContext _context;
         private IUserInfoRepository iUserInfoRepository;
         private readonly AutoMapper.IMapper modelMapper;
@@ -27,7 +32,29 @@ namespace DDD.Application.Services
             modelMapper = _modelMapper;
         }
 
+        #endregion
 
+        #region 用户登录
+
+        /// <summary>
+        /// 用户登录
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public async Task<UserInfoLoginOut> GetModelByLogin(UserInfoLoginInput model)
+        {
+            var userInfo = await iUserInfoRepository.GetModelByLogin(model);
+            return userInfo;
+        }
+
+        #endregion
+
+        #region 查询所有用户集合信息
+
+        /// <summary>
+        /// 查询所有用户集合信息
+        /// </summary>
+        /// <returns></returns>
         public async Task<PagedResult<UserInfoOutput>> GetModels()
         {
             PagedResult<UserInfoOutput> models = new PagedResult<UserInfoOutput>();
@@ -50,16 +77,57 @@ namespace DDD.Application.Services
 
             return models;
         }
+        #endregion
+
+        #region 查询条件所有部分用户集合信息
 
         /// <summary>
-        /// 用户登录
+        /// 查询条件所有部分用户集合信息
         /// </summary>
-        /// <param name="model"></param>
         /// <returns></returns>
-        public async Task<UserInfoLoginOut> GetModelByLogin(UserInfoLoginInput model)
+        public Task<PagedResult<UserInfoOutput>> GetModelsBy()
         {
-            var userInfo = await iUserInfoRepository.GetModelByLogin(model);
-            return userInfo;
+            throw new NotImplementedException();
         }
+        #endregion
+
+        #region 根据主键查询一条用户记录
+
+        /// <summary>
+        /// 根据主键查询一条用户记录
+        /// </summary>
+        /// <returns></returns>
+        public Task<UserInfoOutput> GetModelById()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region 创建用户
+
+        /// <summary>
+        /// 创建用户
+        /// </summary>
+        /// <returns></returns>
+        public Task<bool> CreateModel()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region 更新用户
+
+        /// <summary>
+        /// 更新用户
+        /// </summary>
+        /// <returns></returns>
+        public Task<bool> UpdateModel()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
     }
 }

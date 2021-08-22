@@ -1,4 +1,4 @@
-﻿using DDD.Application.Dtos;
+﻿using DDD.Infrastructure.Dtos;
 using DDD.Application.Interfaces;
 using DDD.Infrastructure;
 using DDD.Repository.Interfaces;
